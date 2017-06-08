@@ -2,10 +2,8 @@ package model;
 
 import helpers.UserType;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import javax.inject.Named;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -13,7 +11,16 @@ import java.io.Serializable;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "User.findAll", query = "select u from User u")
+        @NamedQuery(name = "User.exists", query = "select u from User u where u.name = ?1"),
+        @NamedQuery(name = "User.findAll", query = "select u from User u"),
+        @NamedQuery(name = "User.findAllWithBooks", query = "select u from User u" +
+                " where exists (select 1 from Rental r where r.user = u" +
+                "and r.returnDate > ?1 )"),
+        @NamedQuery(name = "User.getId", query = "select u.id from User u where u.name = ?1"),
+        @NamedQuery(name = "User.isAdmin", query = "select u from User u" +
+                "where u.id = ?1 and u.UserType = ADMIN"),
+        @NamedQuery(name = "User.authenticate", query = "select u from User u" +
+                "where u.name = ?1 and u.password = ?2")
 })
 public class User implements Serializable {
     @Id
@@ -25,4 +32,8 @@ public class User implements Serializable {
     private UserType type;
 
     public static final String findAll = "User.findAll";
+    public static final String findAllWithBooks = "User.findAllWithBooks";
+    public static final String isAdmin = "User.isAdmin";
+    public static final String getId = "User.getId";
+    public static final String authenticate = "User.authenticate";
 }
