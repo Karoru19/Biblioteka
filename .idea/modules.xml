@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Biblioteka.iml" filepath="$PROJECT_DIR$/Biblioteka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Main/Main.iml" filepath="$PROJECT_DIR$/Main/Main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Window/Window.iml" filepath="$PROJECT_DIR$/Window/Window.iml" />
       <module fileurl="file://$PROJECT_DIR$/client-ear/client-ear.iml" filepath="$PROJECT_DIR$/client-ear/client-ear.iml" />
       <module fileurl="file://$PROJECT_DIR$/client-ejb/client-ejb.iml" filepath="$PROJECT_DIR$/client-ejb/client-ejb.iml" />
       <module fileurl="file://$PROJECT_DIR$/client-service/client-service.iml" filepath="$PROJECT_DIR$/client-service/client-service.iml" />
