@@ -1,4 +1,4 @@
-package Controller.login;
+package Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by karoru on 16.05.17.
  */
-public class Controller {
+public class Login {
 
     @FXML
     private void handleLoginButtonAction(ActionEvent evt) {

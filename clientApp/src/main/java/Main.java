@@ -1,4 +1,4 @@
-import Controller.login.Login;
+import Controller.Login;
 import javafx.application.Application;
 
 /**
@@ -7,6 +7,6 @@ import javafx.application.Application;
 public class Main  {
     public static void main(String[] args) {
         Login login = new Login();
-        Application.launch(Login.class, args);
+        Application.launch(String.valueOf(Login.class), String.valueOf(args));
     }
 }
