@@ -19,7 +19,7 @@ public class Login {
     private void handleLoginButtonAction(ActionEvent evt) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("managment.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("mainwindow.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Main Window");
             stage.setScene(new Scene(root, 800, 480));

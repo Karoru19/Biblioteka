@@ -4,6 +4,7 @@ import model.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -17,15 +18,21 @@ public class UserDao {
     public void remove(Long id) { em.remove(em.getReference(User.class, id)); }
     public void update(User user) { }
 
-    public boolean authenticate(String login, String passwd){ /* niewiem xd */ }
-    public boolean isAdmin(String login){ }
+    public boolean authenticate(String login, String passwd){ /* niewiem xd */
+        return false;
+    }
+    public boolean isAdmin(String login){
+        return false;
+    }
 
     public List<User> findAll() {
         TypedQuery<User> query = em.createNamedQuery(User.findAll, User.class);
         return query.getResultList();
     }
 
-    public List<User> findAllWithBooks() {/*znajduje tych co majo coś wypożyczone ;u */}
+    public List<User> findAllWithBooks() {/*znajduje tych co majo coś wypożyczone ;u */
+        return null;
+    }
 
 
 }
