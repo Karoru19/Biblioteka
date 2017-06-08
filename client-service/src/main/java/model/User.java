@@ -14,9 +14,12 @@ import java.io.Serializable;
 })
 public class User implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String name;
     private String password;
+    @Column(unique = true)
     private String email;
     @Enumerated(EnumType.STRING)
     private UserType type;

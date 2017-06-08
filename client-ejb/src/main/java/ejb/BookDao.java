@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Stateless
 public class BookDao {
-    @PersistenceContext(unitName = "PU")
+    @PersistenceContext(unitName = "LibraryDS")
     private EntityManager em;
 
     public void save(Book book) { em.persist(book); }

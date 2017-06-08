@@ -1,9 +1,6 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -18,6 +15,7 @@ import java.util.Date;
 })
 public class Book implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String author;
@@ -28,6 +26,16 @@ public class Book implements Serializable {
     public static final String findAll = "Book.findAll";
     public static final String findByTitle = "Book.findByTitle";
     public static final String findByAuthor = "Book.findByAuthor";
+
+    public Book() {  }
+
+    public Book(String title, String author, Integer edition, Date dateOfPublication, String publisher) {
+        this.title = title;
+        this.author = author;
+        this.edition = edition;
+        this.dateOfPublication = dateOfPublication;
+        this.publisher = publisher;
+    }
 
     public Long getId() { return id; }
 
