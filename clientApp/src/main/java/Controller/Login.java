@@ -37,13 +37,14 @@ public class Login {
     }
 
     @FXML
-    public void handleSignupButtonAction(ActionEvent evt) {
+    public void handleSignupLabelAction(ActionEvent evt) {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("signup.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Sign Up");
-            stage.setScene(new Scene(root, 800, 480));
+            stage.setScene(new Scene(root, 262, 216));
+            stage.setResizable(false);
             stage.show();
             ((Stage)((Node)(evt.getSource())).getScene().getWindow()).close();
         } catch (IOException e) {
