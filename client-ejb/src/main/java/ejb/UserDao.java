@@ -20,7 +20,12 @@ public class UserDao {
     public boolean authenticate(String login, String passwd){ /* niewiem xd */ }
     public boolean isAdmin(String login){ }
 
-    public List<User> findAll() { }
+    public List<User> findAll() {
+        TypedQuery<User> query = em.createNamedQuery(User.findAll, User.class);
+        return query.getResultList();
+    }
+
+    public List<User> findAllWithBooks() {/*znajduje tych co majo coś wypożyczone ;u */}
 
 
 }
