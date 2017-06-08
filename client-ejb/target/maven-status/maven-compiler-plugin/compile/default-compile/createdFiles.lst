@@ -1,0 +1,6 @@
+ejb/BookDao.class
+ejb/RentalBean.class
+ejb/UserBean.class
+ejb/BookBean.class
+ejb/RentalDao.class
+ejb/UserDao.class

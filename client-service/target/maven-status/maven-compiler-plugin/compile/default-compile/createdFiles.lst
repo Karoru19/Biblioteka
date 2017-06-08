@@ -1,0 +1,7 @@
+ejb/RentalBeanRemote.class
+ejb/UserBeanRemote.class
+ejb/BookBeanRemote.class
+helpers/UserType.class
+model/Book.class
+model/User.class
+model/Rental.class

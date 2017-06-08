@@ -6,12 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="client-ear" />
+        <module name="client-ejb" />
+        <module name="client-service" />
+        <module name="clientApp" />
         <module name="Main" />
         <module name="Window" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Biblioteka" target="1.5" />
+      <module name="Biblioteka" target="1.8" />
+      <module name="client-ear" target="1.8" />
+      <module name="client-ejb" target="1.8" />
+      <module name="client-service" target="1.8" />
+      <module name="clientApp" target="1.8" />
       <module name="Main" target="1.5" />
       <module name="Window" target="1.5" />
     </bytecodeTargetLevel>

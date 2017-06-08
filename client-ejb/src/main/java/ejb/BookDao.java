@@ -4,6 +4,7 @@ import model.Book;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  */
 @Stateless
 public class BookDao {
+    @PersistenceContext(unitName = "PU")
     private EntityManager em;
 
     public void save(Book book) { em.persist(book); }
