@@ -22,6 +22,7 @@ public class Login {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("mainwindow.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Main Window");
+            //stage.setResizable(false);
             stage.setScene(new Scene(root, 800, 480));
             stage.show();
             ((Stage)((Node)(evt.getSource())).getScene().getWindow()).close();
