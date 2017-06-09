@@ -1,7 +1,9 @@
 ejb/RentalBeanRemote.class
 ejb/UserBeanRemote.class
+helpers/SendRequest$1.class
 ejb/BookBeanRemote.class
 helpers/UserType.class
+helpers/SendRequest.class
 model/Book.class
 model/User.class
 model/Rental.class

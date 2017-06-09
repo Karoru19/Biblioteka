@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/client-ear" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/client-ejb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/client-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clientApp" charset="UTF-8" />
   </component>
 </project>

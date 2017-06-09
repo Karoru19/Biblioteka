@@ -10,8 +10,14 @@ import java.util.List;
  */
 @Remote
 public interface UserBeanRemote {
-    void save(User user);
-    List<User> findAll();
-    boolean checkPassword(User user);
+    void add(User user);
     void remove(Long id);
+    void update(User user);
+
+    boolean authenticate(String login, String passwd);
+    boolean isAdmin(String login);
+
+    List<User> findAll();
+
+    List<User> findAllWithBooks();
 }

@@ -5,6 +5,7 @@ import model.Rental;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 @Stateless
 public class RentalDao {
+    @PersistenceContext (name = "PU")
     private EntityManager em;
 
     public void save(Rental rental) { em.persist(rental); }

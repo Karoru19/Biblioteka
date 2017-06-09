@@ -1,4 +1,5 @@
 Main.class
+View/Login.class
 Controller/Login.class
 Controller/MainWindow.class
 Controller/SignUp.class
