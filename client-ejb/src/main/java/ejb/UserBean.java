@@ -34,5 +34,8 @@ public class UserBean implements UserBeanRemote {
     public List<User> findAll() { return userDao.findAll(); }
 
     @Override
+    public User findByName(String name) { return userDao.findByName(name); }
+
+    @Override
     public List<User> findAllWithBooks() { return userDao.findAllWithBooks(); }
 }

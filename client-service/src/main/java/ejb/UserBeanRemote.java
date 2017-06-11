@@ -19,5 +19,7 @@ public interface UserBeanRemote {
 
     List<User> findAll();
 
+    User findByName(String name);
+
     List<User> findAllWithBooks();
 }

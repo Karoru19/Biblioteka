@@ -26,6 +26,8 @@ public class Rental implements Serializable {
     private Date rentDate;
     private Date returnDate;
 
+    private static final long serialVersionUID = -558124967080513790L;
+
     public static final String findAll = "Rental.findAll";
     public static final String findByBook = "Rental.findByBook";
     public static final String findByRentDate = "Rental.findByRentDate";

@@ -1,5 +1,10 @@
 /home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Controller/SignUp.java
+/home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Controller/DeleteUser.java
+/home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Helper/SessionHelper.java
 /home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Main.java
 /home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/View/Login.java
 /home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Controller/Login.java
+/home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Controller/AddBook.java
+/home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Controller/DeleteAdmin.java
 /home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Controller/MainWindow.java
+/home/karoru/Dropbox/IV/Java/Biblioteka/clientApp/src/main/java/Controller/DeleteBook.java

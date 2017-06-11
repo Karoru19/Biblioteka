@@ -1,5 +1,10 @@
+Controller/DeleteBook.class
+Controller/DeleteUser.class
+Controller/AddBook.class
+Controller/SignUp.class
+Controller/DeleteAdmin.class
 Main.class
 View/Login.class
 Controller/Login.class
 Controller/MainWindow.class
-Controller/SignUp.class
+Helper/SessionHelper.class

@@ -1,15 +1,21 @@
+import Helper.SessionHelper;
 import View.Login;
 import ejb.BookBean;
 import ejb.BookBeanRemote;
 import ejb.BookDao;
+import ejb.UserBeanRemote;
+import helpers.UserType;
 import javafx.application.Application;
 import model.Book;
+import model.User;
 
+import javax.jws.soap.SOAPBinding;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.List;
 
 /**
  * Created by karoru on 08.06.17.
@@ -28,11 +34,18 @@ public class Main  {
 
         InitialContext ic = new InitialContext(jndiProperties);
 
-        BookBeanRemote ejb = (BookBeanRemote) ic.lookup("ejb:client-ear-1.0-SNAPSHOT/client-ejb-1.0-SNAPSHOT/BookBean!" + BookBeanRemote.class.getName());
-        Book book = new Book("Lol", "XD", 1, (long) 1923, new Date(), "Jakis rak");
-        ejb.save(book);
-        System.out.println(book.getTitle());
-        ejb.remove(ejb.getIdByISBN(book.getISBN()));
+        BookBeanRemote ejbBook = (BookBeanRemote) ic.lookup("ejb:client-ear-1.0-SNAPSHOT/client-ejb-1.0-SNAPSHOT/BookBean!" + BookBeanRemote.class.getName());
+
+        for (Integer i : new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+            ejbBook.save(new Book("Book", "Author", i, (long) (1000*i), new Date(), "Publisher"));
+
+        UserBeanRemote ejbUser = (UserBeanRemote) ic.lookup("ejb:client-ear-1.0-SNAPSHOT/client-ejb-1.0-SNAPSHOT/UserBean!" + UserBeanRemote.class.getName());
+        //ejbUser.add(new User("user", "user", "user@library.edu.org", 0));
+        List<User> list = ejbUser.findAll();
+        for (User u : list) {
+            System.out.println(u.getName());
+        }
+        SessionHelper.setCurrentUser(new User("Anonymous", "", "Brak", -1));
         Application.launch(Login.class, args);
     }
 }
