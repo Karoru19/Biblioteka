@@ -30,6 +30,16 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </PasswordField>
+      <Label text="Password Confirmation">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Label>
+      <PasswordField fx:id="passwordConfirmationField" maxWidth="255.0" promptText="Password Confirmation">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </PasswordField>
       <Label text="Email">
          <VBox.margin>
             <Insets bottom="5.0" />

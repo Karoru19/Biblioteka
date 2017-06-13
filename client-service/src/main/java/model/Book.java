@@ -2,7 +2,6 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by karoru on 02.06.17.
@@ -10,9 +9,10 @@ import java.util.Date;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Book.findAll", query = "select b from Book b"),
-        @NamedQuery(name = "Book.getIdByISBN", query = "select b.id from Book b where b.ISBN = ?1"),
-        @NamedQuery(name = "Book.findByTitle", query = "select b from Book b where b.title=?1"),
-        @NamedQuery(name = "Book.findByAuthor", query = "select b from Book b where b.author=?1")
+        @NamedQuery(name = "Book.getIdByIsbn", query = "select b.id from Book b where b.isbn = ?1"),
+        @NamedQuery(name = "Book.findByTitle", query = "select b from Book b where b.title like ?1"),
+        @NamedQuery(name = "Book.findByAuthor", query = "select b from Book b where b.author like ?1"),
+        @NamedQuery(name = "Book.findByTitleOrAuthor", query = "select b from Book b where upper(b.author) like upper(?1) or upper(b.title) like upper(?2)")
 })
 public class Book implements Serializable {
     @Id
@@ -20,9 +20,9 @@ public class Book implements Serializable {
     private Long id;
     private String title;
     private String author;
-    private Long ISBN;
+    private Long isbn;
     private Integer edition;
-    private Date dateOfPublication;
+    private Integer dateOfPublication;
     private String publisher;
 
     private static final long serialVersionUID = -558553967080513790L;
@@ -30,15 +30,16 @@ public class Book implements Serializable {
     public static final String findAll = "Book.findAll";
     public static final String findByTitle = "Book.findByTitle";
     public static final String findByAuthor = "Book.findByAuthor";
-    public static final String getIdByISBN = "Book.getIdByISBN";
+    public static final String getIdByIsbn = "Book.getIdByIsbn";
+    public static final String findByTitleOrAuthor = "Book.findByTitleOrAuthor";
 
     public Book() {  }
 
-    public Book(String title, String author, Integer edition, Long ISBN,  Date dateOfPublication, String publisher) {
+    public Book(String title, String author, Integer edition, Long isbn,  Integer dateOfPublication, String publisher) {
         this.title = title;
         this.author = author;
         this.edition = edition;
-        this.ISBN = ISBN;
+        this.isbn = isbn;
         this.dateOfPublication = dateOfPublication;
         this.publisher = publisher;
     }
@@ -55,17 +56,17 @@ public class Book implements Serializable {
 
     public void setAuthor(String author) { this.author = author; }
 
-    public Long getISBN() { return ISBN; }
+    public Long getIsbn() { return isbn; }
 
-    public void setISBN(Long ISBN) { this.ISBN = ISBN; }
+    public void setIsbn(Long isbn) { this.isbn = isbn; }
 
     public Integer getEdition() { return edition; }
 
     public void setEdition(Integer edition) { this.edition = edition; }
 
-    public Date getDateOfPublication() { return dateOfPublication; }
+    public Integer getDateOfPublication() { return dateOfPublication; }
 
-    public void setDateOfPublication(Date dateOfPublication) { this.dateOfPublication = dateOfPublication; }
+    public void setDateOfPublication(Integer dateOfPublication) { this.dateOfPublication = dateOfPublication; }
 
     public String getPublisher() { return publisher; }
 

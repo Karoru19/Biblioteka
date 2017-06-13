@@ -6,5 +6,6 @@ package helpers;
 public enum UserType {
     USER,
     LIBRARIAN,
-    ADMIN
+    ADMIN,
+    ANON
 }

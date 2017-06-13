@@ -22,7 +22,7 @@ public class UserBean implements UserBeanRemote {
     public void remove(Long id) { userDao.remove(id); }
 
     @Override
-    public void update(User user) { userDao.update(user); }
+    public void update(User user, String name) { userDao.update(user, name); }
 
     @Override
     public boolean authenticate(String login, String passwd) { return userDao.authenticate(login, passwd); }

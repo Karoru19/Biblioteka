@@ -19,7 +19,14 @@ public class UserDao {
 
     public void add(User user) { em.persist(user); }
     public void remove(Long id) { em.remove(em.getReference(User.class, id)); }
-    public void update(User user) { }
+    public void update(User user, String name) {
+        Query query = em.createNamedQuery(User.update);
+        query.setParameter(1, user.getName());
+        query.setParameter(2, user.getEmail());
+        query.setParameter(3, user.getPassword());
+        query.setParameter(4, name);
+        query.executeUpdate();
+    }
 
     public boolean authenticate(String login, String passwd){ /* niewiem xd */
         Query query = em.createNamedQuery(User.authenticate);

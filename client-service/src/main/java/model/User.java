@@ -13,7 +13,8 @@ import java.io.Serializable;
 @NamedQueries({
         @NamedQuery(name = "User.findAll", query = "select u from User u"),
         @NamedQuery(name = "User.authenticate", query = "select u from User u where u.name = ?1 and u.password = ?2"),
-        @NamedQuery(name = "User.findByName", query = "select u from User u where u.name = ?1")
+        @NamedQuery(name = "User.findByName", query = "select u from User u where u.name = ?1"),
+        @NamedQuery(name = "User.update", query = "update User u set u.name = ?1, u.email = ?2, u.password = ?3 where u.name = ?4")
 })
 public class User implements Serializable {
     @Id
@@ -24,13 +25,15 @@ public class User implements Serializable {
     private String password;
     @Column(unique = true)
     private String email;
-    private Integer type;
+    @Enumerated(EnumType.STRING)
+    private UserType type;
 
     private static final long serialVersionUID = -558987967080513790L;
 
     public static final String findAll = "User.findAll";
     public static final String authenticate = "User.authenticate";
     public static final String findByName = "User.findByName";
+    public static final String update = "User.update";
 
     public User(String name, String password) {
         this.name = name;
@@ -39,7 +42,7 @@ public class User implements Serializable {
 
     public User() {  }
 
-    public User(String name, String password, String email, Integer type) {
+    public User(String name, String password, String email, UserType type) {
         this.name = name;
         this.password = password;
         this.email = email;
@@ -62,8 +65,8 @@ public class User implements Serializable {
 
     public void setEmail(String email) { this.email = email; }
 
-    public Integer getType() { return type; }
+    public UserType getType() { return type; }
 
-    public void setType(Integer type) { this.type = type; }
+    public void setType(UserType type) { this.type = type; }
 
 }

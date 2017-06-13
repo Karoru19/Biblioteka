@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserBeanRemote {
     void add(User user);
     void remove(Long id);
-    void update(User user);
+    void update(User user, String name);
 
     boolean authenticate(String login, String passwd);
     boolean isAdmin(String login);

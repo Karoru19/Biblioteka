@@ -14,6 +14,7 @@ public interface BookBeanRemote {
     List<Book> findAll();
     List<Book> findByTitle(String title);
     List<Book> findByAuthor(String author);
-    Long getIdByISBN (Long ISBN);
+    Long getIdByIsbn (Long isbn);
+    List<Book> findByTitleOrAuthor(String value);
     void remove(Long id);
 }

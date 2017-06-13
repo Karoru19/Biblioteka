@@ -1,8 +1,11 @@
 package Controller;
 
+import Helper.*;
+import Helper.MainWindow;
 import ejb.BookBean;
 import ejb.UserBeanRemote;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,7 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import model.Book;
 import model.User;
@@ -20,8 +25,6 @@ import org.controlsfx.control.Notifications;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.List;
-
-import Helper.SessionHelper;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -61,7 +64,7 @@ public class Login {
                 System.out.println(u.getName());
             }
             if(!ejb.authenticate(login, passwd)){
-                Notifications.create().title("Test").text("Login or Password is incorrect!").hideAfter(Duration.millis(5000)).showError();
+                Notifications.create().title("Error").text("Login or Password is incorrect!").hideAfter(Duration.millis(5000)).showError();
                 return;
             }
             else {
@@ -69,17 +72,7 @@ public class Login {
                 SessionHelper.setCurrentUser(user);
             }
         }
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("mainwindow.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Main Window");
-            stage.setScene(new Scene(root, 800, 480));
-            stage.show();
-            ((Stage)((Node)(evt.getSource())).getScene().getWindow()).close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Helper.MainWindow mainWindow = new Helper.MainWindow(evt);
     }
 
     @FXML
@@ -95,10 +88,13 @@ public class Login {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("signup.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Sign Up");
-            stage.setScene(new Scene(root, 262, 216));
+            stage.setScene(new Scene(root, 262, 266));
             stage.setResizable(false);
-            stage.show();
-            ((Stage)((Node)(evt.getSource())).getScene().getWindow()).close();
+            stage.initOwner(((Node)(evt.getSource())).getScene().getWindow());
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setOnCloseRequest(event -> ((Stage)((Node)(evt.getSource())).getScene().getWindow()).close());
+            stage.showAndWait();
+            //((Stage)((Node)(evt.getSource())).getScene().getWindow()).close();
         } catch (IOException e) {
             e.printStackTrace();
         }

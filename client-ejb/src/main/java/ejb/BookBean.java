@@ -28,7 +28,10 @@ public class BookBean implements BookBeanRemote{
     public List<Book> findByAuthor(String author) { return bookDao.findByAuthor(author); }
 
     @Override
-    public Long getIdByISBN(Long isbn) { return bookDao.getIdByISBN(isbn); }
+    public Long getIdByIsbn(Long isbn) { return bookDao.getIdByIsbn(isbn); }
+
+    @Override
+    public List<Book> findByTitleOrAuthor(String value) { return bookDao.findByTitleOrAuthor(value); }
 
     @Override
     public void remove(Long id) { bookDao.remove(id); }

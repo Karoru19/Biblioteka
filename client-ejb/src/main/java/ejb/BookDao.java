@@ -12,17 +12,17 @@ import java.util.List;
 /**
  * Created by karoru on 02.06.17.
  */
-@DataSourceDefinition(
-        name = "java:jboss/datasources/BibliotekaDS",
-        className = "org.postgresql.xa.PGXADataSource",
-        user = "postgres",
-        password = "postgres",
-        serverName = "localhost",
-        portNumber = 5432,
-        databaseName = "test",
-        minPoolSize = 10,
-        maxPoolSize = 50
-)
+//@DataSourceDefinition(
+//        name = "java:jboss/datasources/BibliotekaDS",
+//        className = "org.postgresql.xa.PGXADataSource",
+//        user = "postgres",
+//        password = "postgres",
+//        serverName = "localhost",
+//        portNumber = 5432,
+//        databaseName = "test",
+//        minPoolSize = 10,
+//        maxPoolSize = 50
+//)
 
 @Stateless
 public class BookDao {
@@ -48,8 +48,8 @@ public class BookDao {
         return query.getResultList();
     }
 
-    public Long getIdByISBN(Long isbn) {
-        TypedQuery<Long> query = em.createNamedQuery(Book.getIdByISBN, Long.class);
+    public Long getIdByIsbn(Long isbn) {
+        TypedQuery<Long> query = em.createNamedQuery(Book.getIdByIsbn, Long.class);
         query.setParameter(1, isbn);
         return query.getSingleResult();
     }
@@ -57,4 +57,10 @@ public class BookDao {
     public void remove(Long id) { em.remove(em.getReference(Book.class, id)); }
 
 
+    public List<Book> findByTitleOrAuthor(String value) {
+        TypedQuery<Book> query = em.createNamedQuery(Book.findByTitleOrAuthor, Book.class);
+        query.setParameter(1, "%"+value+"%");
+        query.setParameter(2, "%"+value+"%");
+        return query.getResultList();
+    }
 }
