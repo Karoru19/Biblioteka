@@ -18,7 +18,7 @@
                   <Label text="(it was sent to you by email)" />
                </children>
             </VBox>
-            <HBox alignment="TOP_CENTER" spacing="15.0">
+            <HBox alignment="TOP_CENTER" spacing="20.0">
                <children>
                   <Slider majorTickUnit="1.0" max="9.0" minorTickCount="1" orientation="VERTICAL" showTickLabels="true" />
                   <Slider majorTickUnit="1.0" max="9.0" minorTickCount="1" orientation="VERTICAL" showTickLabels="true" />
